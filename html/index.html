@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bhaasha Setu</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <h1>
+      <b> <span class="heading"></span>BHAASHA SETU </b>
+    </h1>
+    <div class="tabs">
+      <div class="tab-header">
+        <button class="tab-link active" onclick="openTab(event, 'Translate')">
+          Translate
+        </button>
+        <button class="tab-link" onclick="openTab(event, 'Transliteration')">
+          Transliteration
+        </button>
+      </div>
+      <div id="Translate" class="tab-content">
+        <div class="wrapper">
+          <h3>Translate</h3>
+          <div class="container_translate">
+            <div class="container_translate_input">
+              <div class="col form-label">
+                <label for="inputLanguage" class="mt-2"
+                  ><h6>Source Language:</h6></label
+                >
+              </div>
+              <div class="col">
+                <select
+                  class="form-control form-control-sm"
+                  id="inputLanguage"
+                  required
+                >
+                  <option value="" disabled selected hidden>
+                    Source language
+                  </option>
+                  <option value="eng_Latn">English</option>
+                  <option value="asm_Beng">Assamese</option>
+                  <option value="ben_Beng">Bengali</option>
+                  <option value="guj_Gujr">Gujarati</option>
+                  <option value="hin_Deva">Hindi</option>
+                  <option value="kan_Knda">Kannada</option>
+                  <option value="mal_Mlym">Malayalam</option>
+                  <option value="mar_Deva">Marathi</option>
+                  <option value="npi_Deva">Nepali</option>
+                  <option value="ory_Orya">Odia</option>
+                  <option value="pan_Guru">Punjabi</option>
+                  <option value="san_Deva">Sanskrit</option>
+                  <option value="tam_Taml">Tamil</option>
+                  <option value="tel_Telu">Telugu</option>
+                  <option value="unr_Deva">Urdu</option>
+                </select>
+              </div>
+              <div
+                class="container mt-4"
+                style="padding-right: 0; padding-left: 0; position: relative"
+              >
+                <div class="speaker-icon" onclick="speak('Translate_input')">
+                  🔊
+                </div>
+                <textarea
+                  class="form-control"
+                  id="inputText"
+                  placeholder="Enter text to translate"
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <div class="container_translate_output">
+              <div class="col form-label">
+                <label for="outputLanguage" class="mt-2"
+                  ><h6>Target Language:</h6></label
+                >
+              </div>
+              <div class="col">
+                <select
+                  class="form-control form-control-sm"
+                  id="outputLanguage"
+                  required
+                >
+                  <option value="" disabled selected hidden>
+                    Target Language:
+                  </option>
+                  <option value="eng_Latn">English</option>
+                  <option value="asm_Beng">Assamese</option>
+                  <option value="ben_Beng">Bengali</option>
+                  <option value="guj_Gujr">Gujarati</option>
+                  <option value="hin_Deva">Hindi</option>
+                  <option value="kan_Knda">Kannada</option>
+                  <option value="mal_Mlym">Malayalam</option>
+                  <option value="mar_Deva">Marathi</option>
+                  <option value="npi_Deva">Nepali</option>
+                  <option value="ory_Orya">Odia</option>
+                  <option value="pan_Guru">Punjabi</option>
+                  <option value="san_Deva">Sanskrit</option>
+                  <option value="tam_Taml">Tamil</option>
+                  <option value="tel_Telu">Telugu</option>
+                  <option value="unr_Deva">Urdu</option>
+                </select>
+              </div>
+              <div
+                class="container mt-4"
+                style="padding-right: 0; padding-left: 0; position: relative"
+              >
+                <div class="speaker-icon" onclick="speak('Translate_Output')">
+                  🔊
+                </div>
+                <textarea
+                  class="form-control"
+                  id="outputText"
+                  placeholder="Translated text will appear here"
+                  required
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="translate">
+            <button
+              type="button"
+              class="btn btn-outline-dark mt-4 fw-bold"
+              onclick="translateText()"
+            >
+              TRANSLATE
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="Transliteration" class="tab-content" style="display: none">
+        <div class="wrapper">
+          <h3>Transliteration</h3>
+
+          <div class="container_translate">
+            <div class="container_translate_input">
+              <div class="col form-label">
+                <label for="inputLanguageTransliteration" class="mt-2"
+                  ><h6>Source Language:</h6></label
+                >
+              </div>
+              <div class="col">
+                <select
+                  class="form-control form-control-sm"
+                  id="inputLanguageTransliteration"
+                  required
+                >
+                  <option value="" disabled selected hidden>
+                    Source language
+                  </option>
+                  <option value="english">English</option>
+                  <option value="assamese">Assamese</option>
+                  <option value="bengali">Bengali</option>
+                  <option value="gujarati">Gujarati</option>
+                  <option value="hindi">Hindi</option>
+                  <option value="kannada">Kannada</option>
+                  <option value="malayalam">Malayalam</option>
+                  <option value="marathi">Marathi</option>
+                  <option value="nepali">Nepali</option>
+                  <option value="odia">Odia</option>
+                  <option value="punjabi">Punjabi</option>
+                  <option value="sanskrit">Sanskrit</option>
+                  <option value="tamil">Tamil</option>
+                  <option value="telugu">Telugu</option>
+                </select>
+              </div>
+              <div
+                class="container mt-4"
+                style="padding-right: 0; padding-left: 0; position: relative"
+              >
+                <div
+                  class="speaker-icon"
+                  onclick="speak('Transliteration_input')"
+                >
+                  🔊
+                </div>
+                <textarea
+                  class="form-control"
+                  id="inputTextTransliteration"
+                  placeholder="Enter text to translate"
+                  required
+                ></textarea>
+              </div>
+            </div>
+            <div class="container_translate_output">
+              <div class="col form-label">
+                <label for="outputLanguageTransliteration" class="mt-2">
+                  <h6>Tarsliterated Language:</h6></label
+                >
+              </div>
+              <div class="col">
+                <select
+                  class="form-control form-control-sm"
+                  id="outputLanguageTransliteration"
+                  required
+                >
+                  <option value="english" disabled selected hidden>
+                    English
+                  </option>
+                </select>
+              </div>
+              <div
+                class="container mt-4"
+                style="padding-right: 0; padding-left: 0; position: relative"
+              >
+                <div
+                  class="speaker-icon"
+                  onclick="speak('Transliteration_Output')"
+                >
+                  🔊
+                </div>
+                <textarea
+                  class="form-control"
+                  id="outputTextTranliteration"
+                  placeholder="Transliterated text will appear here"
+                  required
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="translate">
+            <button
+              type="button"
+              class="btn btn-outline-dark mt-4 fw-bold"
+              onclick="transliterateText()"
+            >
+              TRANSLITERATE
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <footer>
+        <hr size="20" />
+        <p style="color: black">Made with ❤️ and ☕ by Vanshika Rajput</p>
+      </footer>
+    </div>
+
+    <script>
+      function openTab(event, tabName) {
+        var i, tabcontent, tablinks;
+
+        // Hide all tab contents
+        tabcontent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+
+        // Remove the active class from all tab links
+        tablinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+
+        // Show the current tab and add the active class to the button that opened the tab
+        document.getElementById(tabName).style.display = "block";
+        event.currentTarget.className += " active";
+      }
+
+      async function translateText() {
+      
+        const sourceLang = document.getElementById("inputLanguage").value;
+        const targetLang = document.getElementById("outputLanguage").value;
+        const inputText = document.getElementById("inputText").value;
+        console.log(sourceLang, targetLang, inputText);
+        const response = await fetch("/translate", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            source_lang: sourceLang,
+            target_lang: targetLang,
+            input_sentence: inputText,
+          }),
+        });
+
+        const data = await response.json();
+        console.log(data);
+        document.getElementById("outputText").value = data.translation;
+      }
+
+      async function transliterateText() {
+        const sourceLang = document.getElementById(
+          "inputLanguageTransliteration"
+        ).value;
+        const targetLang = document.getElementById(
+          "outputLanguageTransliteration"
+        ).value;
+        const inputText = document.getElementById(
+          "inputTextTransliteration"
+        ).value;
+        console.log(sourceLang, targetLang, inputText);
+        const response = await fetch("/transliteration", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            source_lang: sourceLang,
+            target_lang: targetLang,
+            input_sentence: inputText,
+          }),
+        });
+
+        const data = await response.json();
+        document.getElementById("outputTextTranliteration").value =
+          data.transliteration;
+      }
+
+      function speak(textarea) {
+        if (textarea === "Transliteration_input") {
+          const inputText = document.getElementById(
+            "inputTextTransliteration"
+          ).value;
+
+          if ("speechSynthesis" in window) {
+            var msg = new SpeechSynthesisUtterance(inputText);
+            window.speechSynthesis.speak(msg);
+          } else {
+            alert("Sorry, your browser does not support text to speech.");
+          }
+        }
+        if (textarea === "Translate_input") {
+          const inputText = document.getElementById("inputText").value;
+
+          if ("speechSynthesis" in window) {
+            var msg = new SpeechSynthesisUtterance(inputText);
+            window.speechSynthesis.speak(msg);
+          } else {
+            alert("Sorry, your browser does not support text to speech.");
+          }
+        }
+        if (textarea === "Transliteration_Output") {
+          const outputText = document.getElementById(
+            "outputTextTranliteration"
+          ).value;
+
+          if ("speechSynthesis" in window) {
+            var msg = new SpeechSynthesisUtterance(outputText);
+            window.speechSynthesis.speak(msg);
+          } else {
+            alert("Sorry, your browser does not support text to speech.");
+          }
+        }
+        if (textarea === "Translate_Output") {
+          const outputText = document.getElementById("outputText").value;
+
+          if ("speechSynthesis" in window) {
+            var msg = new SpeechSynthesisUtterance(outputText);
+            window.speechSynthesis.speak(msg);
+          } else {
+            alert("Sorry, your browser does not support text to speech.");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

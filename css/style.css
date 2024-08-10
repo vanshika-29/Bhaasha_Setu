@@ -1,0 +1,108 @@
+body {
+  background: rgb(79, 222, 194);
+  background: linear-gradient(
+    90deg,
+    rgba(79, 222, 194, 1) 0%,
+    rgba(9, 121, 99, 0.7931547619047619) 33%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+h1 {
+  text-align: center;
+}
+.heading {
+  font-size: 35pt;
+}
+.translate {
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+textarea {
+  height: 226px;
+}
+
+select {
+  appearance: listbox !important;
+}
+footer p {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  text-align: center;
+  color: gray;
+}
+main {
+  width: 100%;
+}
+.label {
+  font-weight: 600;
+  margin: 1rem 0 1rem 0;
+}
+
+.container {
+}
+
+.tabs {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.tab-header {
+  display: flex;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  border-radius: 15px;
+}
+
+.tab-link {
+  flex: 1;
+  padding: 14px 20px;
+  text-align: center;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s;
+  font-weight: 600;
+  border-radius: 15px;
+}
+
+.tab-link.active {
+  background-color: #ddd;
+}
+
+.tab-link:hover {
+  background-color: #ddd;
+}
+
+.tab-content {
+}
+
+.container_translate,
+.transliteration_container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.container_translate_input,
+.container_translate_output {
+  width: 50%;
+}
+
+.wrapper {
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.speaker-icon {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  font-size: 40px;
+  cursor: pointer;
+  vertical-align: middle;
+  background-image: url("../tools/images/Speaker_Icon.svg.png");
+}
